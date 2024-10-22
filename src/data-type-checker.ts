@@ -10,6 +10,9 @@ interface TypeChecker {
     processFile(file: string): void;
 }
 
+const RESULT_OUTPUT_PATH = 'type_checker_result.txt';
+
+// Challenge B
 class DataTypeChecker implements TypeChecker {
 
     async processFile(file: string): Promise<void> {
@@ -28,9 +31,8 @@ class DataTypeChecker implements TypeChecker {
                 output.push(line);
             })
 
-            const outputPath = 'type_checker_result.txt';
-            await fs.writeFile(outputPath, output.join('\n'));
-            console.log(`Results written to: ${outputPath}`);
+            await fs.writeFile(RESULT_OUTPUT_PATH, output.join('\n'));
+            console.log(`Results written to: ${RESULT_OUTPUT_PATH}`);
 
         } catch (e) {
             console.log(e)

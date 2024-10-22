@@ -9,12 +9,15 @@
 
 import * as fs from 'fs';
 
+const GENERATED_FILE_OUTPUT_PATH = 'generated_random_string.txt';
+
 export interface DataGenerator {
     generateRandomDataFile: () => void;
 }
 
+// Challenge A
 class RandomDataGenerator implements DataGenerator {
-    private writeStream = fs.createWriteStream("generated_random_string.txt");
+    private writeStream = fs.createWriteStream(GENERATED_FILE_OUTPUT_PATH);
     private currentSize = 0;
     private readonly targetSize = 10 * 1024 * 1024; // 10 mb
 
@@ -71,6 +74,7 @@ class RandomDataGenerator implements DataGenerator {
             this.writeStream.write(generatedLines);
         }
         this.writeStream.end();
+        console.log(`Results written to: ${GENERATED_FILE_OUTPUT_PATH}`);
     }
 }
 

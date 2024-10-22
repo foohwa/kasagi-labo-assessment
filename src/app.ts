@@ -5,10 +5,9 @@ const GENERATED_FILE_PATH = `generated_random_string.txt`;
 
 async function main() {
     try {
-        console.log('Starting file generation...');
+        console.log('Starting random string generation...');
         const randomDataGenerator = new RandomDataGenerator();
         await randomDataGenerator.generateRandomDataFile();
-        console.log('File generated!');
 
         console.log('Starting file processing...');
         const checker = new DataTypeChecker();
